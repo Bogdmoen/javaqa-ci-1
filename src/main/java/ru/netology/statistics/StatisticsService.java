@@ -7,12 +7,28 @@ public class StatisticsService {
      * @param incomes - array of incomes
      * @return - index of first max value
      */
+
     public long findMax(long[] incomes) {
-        long current_max_index = 0;
-        long current_max = incomes[0];
+        long currentMax = incomes[0];
         for (long income : incomes)
-            if (current_max < income)
-                current_max = income;
-        return current_max;
+            if (currentMax < income) {
+
+                currentMax = income;
+            }
+        return currentMax;
+    }
+
+    public long findMaxIndex(long[] incomes) {
+        long currentMax = findMax(incomes);
+        long indexOfMaxIncome = 0;
+        for (int i = 0; i < incomes.length; i++) {
+
+            if (currentMax == incomes[i]) {
+                indexOfMaxIncome = i;
+                break;
+            }
+        }
+        return indexOfMaxIncome;
     }
 }
+
